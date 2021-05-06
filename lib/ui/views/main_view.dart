@@ -25,7 +25,7 @@ class _MainViewDrawer extends ConsumerWidget {
     final DrawerIndexProvider _drawerIndexProvider =
         watch(drawerIndexProvider.notifier);
 
-    _buildDrawerListTile({
+    Widget _buildDrawerListTile({
       required String title,
       required IconData icon,
       required bool isChecked,
@@ -85,6 +85,91 @@ class _MainViewDrawer extends ConsumerWidget {
       );
     }
 
+    Widget _buildProfileCard() {
+      return Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+          side: BorderSide(
+            color: Color(0xffEFF5FA),
+            width: 2,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Row(
+            children: <Widget>[
+              const SizedBox(width: 10),
+              Card(
+                color: Color(0xff30357C),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Icon(
+                      Icons.radio_button_checked_rounded,
+                      size: 35,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Yazeed AlKhalaf",
+                      style: TextStyle(
+                        color: Color(0xff30357C),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Card(
+                      color: Color(0xff16DBCC),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 5,
+                          vertical: 3,
+                        ),
+                        child: Text(
+                          "Trial, 12 days left",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Column(
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_drop_down_rounded,
+                    ),
+                    onPressed: () {},
+                    splashRadius: 15,
+                  ),
+                ],
+              ),
+              const SizedBox(width: 10),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Drawer(
       child: Material(
         color: Colors.white,
@@ -93,88 +178,7 @@ class _MainViewDrawer extends ConsumerWidget {
           child: Column(
             children: <Widget>[
               const SizedBox(height: 20),
-              Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  side: BorderSide(
-                    color: Color(0xffEFF5FA),
-                    width: 2,
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Row(
-                    children: <Widget>[
-                      const SizedBox(width: 10),
-                      Card(
-                        color: Color(0xff30357C),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Icon(
-                              Icons.radio_button_checked_rounded,
-                              size: 35,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              "Yazeed AlKhalaf",
-                              style: TextStyle(
-                                color: Color(0xff30357C),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                            Card(
-                              color: Color(0xff16DBCC),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 5,
-                                  vertical: 3,
-                                ),
-                                child: Text(
-                                  "Trial, 12 days left",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: 0.5,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Column(
-                        children: <Widget>[
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_drop_down_rounded,
-                            ),
-                            onPressed: () {},
-                            splashRadius: 15,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(width: 10),
-                    ],
-                  ),
-                ),
-              ),
+              _buildProfileCard(),
               const SizedBox(height: 35),
               _buildDrawerListTile(
                 title: "Home",

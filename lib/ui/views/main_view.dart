@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_desktop_fireside_chat_example/app/providers/home_provider.dart';
+import 'package:flutter_desktop_fireside_chat_example/app/providers/main_providers.dart';
 
 import 'package:flutter_desktop_fireside_chat_example/ui/widgets/responsive.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

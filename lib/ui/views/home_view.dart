@@ -18,25 +18,28 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: Text(""),
       ),
-      body: Column(
-        children: <Widget>[
-          Text(
-            "Press the 'plus' button to increase the counter:",
-            style: Theme.of(context).textTheme.caption,
-          ),
-          Text(
-            "$_counter",
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Press the 'plus' button to increase the counter:",
             ),
-          ),
-        ],
+            Text(
+              "$_counter",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _incrementCounter();
         },
+        tooltip: "Increment",
         child: Icon(
           Icons.add,
         ),

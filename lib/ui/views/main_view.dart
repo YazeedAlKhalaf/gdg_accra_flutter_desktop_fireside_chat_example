@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_desktop_fireside_chat_example/app/providers/main_providers.dart';
-
-import 'package:flutter_desktop_fireside_chat_example/ui/widgets/responsive.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MainView extends StatefulWidget {
-  @override
-  _MainViewState createState() => _MainViewState();
-}
+import 'package:flutter_desktop_fireside_chat_example/app/providers/main_providers.dart';
+import 'package:flutter_desktop_fireside_chat_example/ui/views/home_view.dart';
+import 'package:flutter_desktop_fireside_chat_example/ui/widgets/responsive.dart';
 
-class _MainViewState extends State<MainView> {
+class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Responsive(
@@ -41,7 +37,7 @@ class _MainViewDrawer extends ConsumerWidget {
           title,
           style: TextStyle(
             fontSize: 18,
-            color: Color(0xff396AFF),
+            color: isChecked ? Color(0xff396AFF) : null,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -236,7 +232,7 @@ class _MainViewIndexedStack extends ConsumerWidget {
     return IndexedStack(
       index: watch(drawerIndexProvider),
       children: <Widget>[
-        Center(child: Text("Home View")),
+        HomeView(),
         Center(child: Text("Orders View")),
         Center(child: Text("Customers View")),
         Center(child: Text("Products View")),

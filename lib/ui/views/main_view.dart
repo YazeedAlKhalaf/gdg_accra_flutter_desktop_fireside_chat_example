@@ -167,6 +167,7 @@ class _MainViewDrawer extends ConsumerWidget {
     }
 
     return Drawer(
+      elevation: Responsive.isDesktop(context) ? 0 : 16,
       child: Material(
         color: Colors.white,
         child: Padding(
@@ -264,6 +265,7 @@ class _MainViewDesktop extends StatelessWidget {
       body: Row(
         children: <Widget>[
           _MainViewDrawer(),
+          VerticalDivider(),
           Expanded(
             child: _MainViewIndexedStack(),
           ),

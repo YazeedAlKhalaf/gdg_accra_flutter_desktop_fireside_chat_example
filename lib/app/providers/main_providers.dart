@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// ignore: top_level_function_literal_block
 final drawerIndexProvider =
     StateNotifierProvider<DrawerIndexProvider, int>((ref) {
   return DrawerIndexProvider();
